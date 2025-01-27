@@ -29,10 +29,10 @@ y = df['fail']
 sca = StandardScaler()
 X_scaled = sca.fit_transform(x)
 
-pca = PCA(n_components=2)
+pca = PCA(n_components=3)
 X_pca = pca.fit_transform(X_scaled)
 
-df_pca = pd.DataFrame(data=X_pca,columns=['pc1','pc2'])
+df_pca = pd.DataFrame(data=X_pca,columns=['pc1','pc2','pc3'])
 df_pca['fail'] = y.values
 
 df_pca.to_csv(os.path.join('data','processed','machine_fault_pca.csv'),index=False)
